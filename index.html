@@ -58,7 +58,20 @@
 
         }
 
+.copy-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
 
+  .copy-btn:hover {
+    background-color: #45a049;
+  }
 
     #navbar {
 
@@ -371,6 +384,13 @@ pre {
       <p>Selected file:</p>
       <div id="file-name">No file selected!</div>
     </div>
+
+
+<button class="copy-btn" onclick="copyContent()"><i class="fas fa-solid fa-copy"></i> Copy Content</button>
+
+
+
+
 		<pre id="file-content"></pre>
 	</div>
 
@@ -410,6 +430,18 @@ pre {
 
 
     
+<script>
+function copyContent() {
+  // Get the content from the <pre> element
+  var content = document.getElementById("file-content").innerText;
+  // Use the navigator.clipboard API to copy the text
+  navigator.clipboard.writeText(content).then(function() {
+    console.log('Copying to clipboard was successful!');
+  }, function(err) {
+    console.error('Could not copy text: ', err);
+  });
+}
+</script>
 
 
 
@@ -596,4 +628,4 @@ fileInput.addEventListener('change', (event) => {
     }
 });</script>
 </body>
-  </html>
+	</html>
